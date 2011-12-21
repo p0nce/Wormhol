@@ -22,14 +22,14 @@ class Surface : GameObject
             super(manager);
             m_matrix = transform;
             m_invMatrix = transform.inversed();
-        }        
+        }
 
         override mat4f matrix()
-    	{
+        {
             return m_matrix;
-    	}
-    	
-    	override mat4f invMatrix()
+        }
+
+        override mat4f invMatrix()
         {
             return m_invMatrix;
         }

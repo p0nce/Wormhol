@@ -34,7 +34,7 @@ class GameContext
         this(PostProcessing postProcessing, vec2i size, ShaderPool shaderPool, Textures textures,
              BitmapFont font, box2i viewport, SoundManager soundManager)
         {
-	        info(">GameContext.this");
+            info(">GameContext.this");
             m_postProcessing = postProcessing;
             m_size = size;
             m_shaderPool = shaderPool;
@@ -44,66 +44,66 @@ class GameContext
             m_soundManager = soundManager;
             info("<GameContext.this");
         }
-        
+
 
         Textures textures() { return m_textures; }
 
-		int width() { return m_size.x; }
-		int height() { return m_size.y; }
+        int width() { return m_size.x; }
+        int height() { return m_size.y; }
 
         float blurAmount(float ba) { return m_postProcessing.blurAmount = ba; }
-		float PPAmount(float ppa) { return m_postProcessing.PPAmount = ppa; }
-		float HFAmount(float hfa) { return m_postProcessing.HFAmount = hfa; }
+        float PPAmount(float ppa) { return m_postProcessing.PPAmount = ppa; }
+        float HFAmount(float hfa) { return m_postProcessing.HFAmount = hfa; }
         float blurAmount() { return m_postProcessing.blurAmount; }
-		float PPAmount() { return m_postProcessing.PPAmount; }
-		float HFAmount() { return m_postProcessing.HFAmount; }
-		ShaderPool shaderPool() { return m_shaderPool; }
-		BitmapFont font() { return m_font; }
+        float PPAmount() { return m_postProcessing.PPAmount; }
+        float HFAmount() { return m_postProcessing.HFAmount; }
+        ShaderPool shaderPool() { return m_shaderPool; }
+        BitmapFont font() { return m_font; }
 
-		box2i viewport()
-		{
+        box2i viewport()
+        {
             return m_viewport;
-		}
+        }
 
-		double ratio()
-		{
-			return m_viewport.width / m_viewport.height;
-		}
-		
-		bool mouseDown()
-		{
-			return m_mouseDown;	
-		}
-		
-		bool mouseDown(bool b)
-		{
-			return m_mouseDown = b;	
-		}
+        double ratio()
+        {
+            return m_viewport.width / m_viewport.height;
+        }
 
-		vec2f mousePos()
-		{
+        bool mouseDown()
+        {
+            return m_mouseDown;
+        }
+
+        bool mouseDown(bool b)
+        {
+            return m_mouseDown = b;
+        }
+
+        vec2f mousePos()
+        {
             return m_mousePos;
-		}
+        }
 
-		vec2f mousePos(vec2f pos)
-		{
+        vec2f mousePos(vec2f pos)
+        {
             return m_mousePos = pos;
-		}
+        }
 
-		vec2f mouseVel()
-		{
+        vec2f mouseVel()
+        {
             return m_mouseVel;
-		}
+        }
 
-		vec2f mouseVel(vec2f vel)
-		{
+        vec2f mouseVel(vec2f vel)
+        {
             return m_mouseVel = vel;
-		}		
-		
-		SoundManager soundManager()
-		{
-			return m_soundManager;	
-		}
+        }
+
+        SoundManager soundManager()
+        {
+            return m_soundManager;
+        }
 
     }
 }

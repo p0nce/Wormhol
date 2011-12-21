@@ -17,7 +17,7 @@ final class SphereSurface : NonMeshSurface
 {
     private
     {
-		SphereGeometry m_sphereGeometry;        
+        SphereGeometry m_sphereGeometry;
     }
 
     public
@@ -25,10 +25,10 @@ final class SphereSurface : NonMeshSurface
         this(SceneManager manager, mat4f transform)
         {
             super(manager, transform);
-            m_sphereGeometry = new SphereGeometry(40, 80, 1.f, true);            
+            m_sphereGeometry = new SphereGeometry(40, 80, 1.f, true);
         }
 
- 
+
         override bool doHit(rayf r, out float distance, out vec3f point, out vec3f normal)
         {
             spheref s = spheref(vec3f(0), 1.f);
@@ -37,15 +37,15 @@ final class SphereSurface : NonMeshSurface
 
         override void recomputeBoundingBox()
         {
-	        m_boundingBox = box3f(vec3f(-1.f), vec3f(+1.f));
+            m_boundingBox = box3f(vec3f(-1.f), vec3f(+1.f));
         }
 
         override void doRender(double t)
         {
             GL.color = vec4f(1, 1, 1, 1);
 
-            shader.use();            
-            
+            shader.use();
+
             m_sphereGeometry.render();
         }
     }

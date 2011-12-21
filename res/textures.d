@@ -27,32 +27,32 @@ final class Textures
     {
         this()
         {
-	        info(">Textures.this()");
+            info(">Textures.this()");
             m_wormholLogo = loadTexture2D("data/gfx/wormhollogo.jpg", Texture.IFormat.RGBA8,
-			                       Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
-			                       Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
+                                   Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
+                                   Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
             m_lefti = loadTexture2D("data/gfx/lefti.png", Texture.IFormat.RGBA8,
-			                       Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
-			                       Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
+                                   Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
+                                   Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
             m_righti = loadTexture2D("data/gfx/righti.png", Texture.IFormat.RGBA8,
-			                       Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
-			                       Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
+                                   Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
+                                   Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
             m_bottomi = loadTexture2D("data/gfx/bottomi.png", Texture.IFormat.RGBA8,
-			                       Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
-			                       Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
+                                   Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
+                                   Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
             m_mouse1 = loadTexture2D("data/gfx/mouse1.png", Texture.IFormat.RGBA8,
-			                       Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
-			                       Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
+                                   Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
+                                   Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
             m_mouse2 = loadTexture2D("data/gfx/mouse2.png", Texture.IFormat.RGBA8,
-			                       Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
-			                       Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
+                                   Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
+                                   Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
             m_borders = loadTexture2D("data/gfx/border.jpg", Texture.IFormat.RGBA8,
-			                       Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
-			                       Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
-			                       
-			m_eye = loadTexture2D("data/gfx/eye.png", Texture.IFormat.RGBA8,
-			                       Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
-			                       Texture.Wrap.CLAMP_TO_EDGE, true, false, false);			                       
+                                   Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
+                                   Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
+
+            m_eye = loadTexture2D("data/gfx/eye.png", Texture.IFormat.RGBA8,
+                                   Texture.Filter.LINEAR_MIPMAP_LINEAR, Texture.Filter.LINEAR,
+                                   Texture.Wrap.CLAMP_TO_EDGE, true, false, false);
 /*
             info(">Creating 3D noise");
 
@@ -85,23 +85,23 @@ final class Textures
             */
             info("<Texture.this()");
         }
-        
+
         // utility : load a texture in one line
         static Texture2D loadTexture2D(char[] filename, Texture.IFormat iFormat, Texture.Filter minfilter, Texture.Filter magfilter, Texture.Wrap wrap,
                                        bool mipmap, bool compress, bool sRGB)
         {
             assert(!sRGB);
-            
+
             scope auto img = new SDLImage(filename);
-            
+
             info(format(">Loading texture %s", filename));
             Texture2D res = new Texture2D(img.width, img.height, iFormat, true, compress, sRGB);
-            
+
             res.minFilter = minfilter;
             res.magFilter = magfilter;
             res.wrapS = wrap;
             res.wrapT = wrap;
-            
+
             img.lock();
             res.setSubImage(0, 0, 0, img.width, img.height, Texture.Format.RGBA, Texture.Type.UBYTE, img.data);
             res.generateMipmaps;
@@ -144,7 +144,7 @@ final class Textures
         {
             return m_borders;
         }
-        
+
         Texture2D eye()
         {
             return m_eye;
@@ -255,7 +255,7 @@ final class Textures
 
             tex.setImage(0, size, size, size, Texture.Format.INTENSITY, Texture.Type.FLOAT, texData3D.ptr, true);
             GL.check();
-			return tex;
+            return tex;
         }
     }
 }

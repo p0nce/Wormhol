@@ -14,10 +14,10 @@ abstract class MenuAction
         {
             return "";
         }
-        
+
         bool enabled()
         {
-			return true;   
+            return true;
         }
     }
 }
@@ -67,17 +67,17 @@ final class GotoMenuActionOrRestartApp : MenuAction
         }
 
         MenuState dest() { return m_menuState; }
-        
+
         string textExt()
         {
-	        if (graphicsSettingsHaveChanged())
-	        {
-            	return "Apply";
-        	}
-        	else
-        	{
-	        	return "Back";	
-        	}
+            if (graphicsSettingsHaveChanged())
+            {
+                return "Apply";
+            }
+            else
+            {
+                return "Back";
+            }
         }
     }
 }
@@ -94,9 +94,9 @@ abstract class ChangeValueAction : MenuAction
 {
    public
     {
-		abstract void previous();
+        abstract void previous();
 
-		abstract void next();
+        abstract void next();
 
   //      abstract int currentIndex();
 
@@ -111,16 +111,16 @@ class ChangeResolutionSettingsAction : ChangeValueAction
     public
     {
         override void previous()
-		{
-			selectedResolution--;
-			if (selectedResolution < 0) selectedResolution += MAX_RESOLUTION_CHOICE;			
-		}
+        {
+            selectedResolution--;
+            if (selectedResolution < 0) selectedResolution += MAX_RESOLUTION_CHOICE;
+        }
 
-		override void next()
-		{
-			selectedResolution++;
-			if (selectedResolution >= MAX_RESOLUTION_CHOICE) selectedResolution = 0;			
-		}
+        override void next()
+        {
+            selectedResolution++;
+            if (selectedResolution >= MAX_RESOLUTION_CHOICE) selectedResolution = 0;
+        }
 
      //   override int currentIndex() { return selectedResolution; }
 
@@ -129,8 +129,8 @@ class ChangeResolutionSettingsAction : ChangeValueAction
         override string textExt()
         {
             return getResolutionString(selectedResolution);
-        }        
-        
+        }
+
     }
 }
 
@@ -151,16 +151,16 @@ class StdChangeValueAction : ChangeValueAction
         }
 
         override void previous()
-		{
-			m_current--;
-			if (m_current < 0) m_current += m_values.length;
-		}
+        {
+            m_current--;
+            if (m_current < 0) m_current += m_values.length;
+        }
 
-		override void next()
-		{
-			m_current++;
-			if (m_current >= m_values.length) m_current = 0;
-		}
+        override void next()
+        {
+            m_current++;
+            if (m_current >= m_values.length) m_current = 0;
+        }
 
         int currentIndex() { return m_current; }
 
@@ -178,18 +178,18 @@ class ChangeFullscreenSettingsAction : ChangeValueAction
     public
     {
         override void previous()
-		{
-			selectedFullscreen = !selectedFullscreen;			
-		}
+        {
+            selectedFullscreen = !selectedFullscreen;
+        }
 
-		override void next()
-		{
-			selectedFullscreen = !selectedFullscreen;
-		}
+        override void next()
+        {
+            selectedFullscreen = !selectedFullscreen;
+        }
 
         override string textExt()
         {
-	        return selectedFullscreen ? "Fullscreen" : "No fullscreen";
+            return selectedFullscreen ? "Fullscreen" : "No fullscreen";
         }
     }
 }
@@ -199,20 +199,20 @@ class ChangePlayersSettingsAction : ChangeValueAction
     public
     {
         override void previous()
-		{
-			selectedPlayers--;
-			if (selectedPlayers < MIN_PLAYERS) selectedPlayers = MAX_PLAYERS;
-		}
+        {
+            selectedPlayers--;
+            if (selectedPlayers < MIN_PLAYERS) selectedPlayers = MAX_PLAYERS;
+        }
 
-		override void next()
-		{
-			selectedPlayers++;
-			if (selectedPlayers > MAX_PLAYERS) selectedPlayers = MIN_PLAYERS;
-		}
+        override void next()
+        {
+            selectedPlayers++;
+            if (selectedPlayers > MAX_PLAYERS) selectedPlayers = MIN_PLAYERS;
+        }
 
         override string textExt()
         {
-	        return std.string.toString(selectedPlayers);
+            return std.string.toString(selectedPlayers);
         }
     }
 }
@@ -222,20 +222,20 @@ class ChangeIASettingsAction : ChangeValueAction
     public
     {
         override void previous()
-		{
-			selectedIA--;
-			if (selectedIA <= MIN_IA) selectedIA = MAX_IA;
-		}
+        {
+            selectedIA--;
+            if (selectedIA <= MIN_IA) selectedIA = MAX_IA;
+        }
 
-		override void next()
-		{
-			selectedIA++;
-			if (selectedIA > MAX_IA) selectedIA = MIN_IA;
-		}
+        override void next()
+        {
+            selectedIA++;
+            if (selectedIA > MAX_IA) selectedIA = MIN_IA;
+        }
 
         override string textExt()
         {
-	        return std.string.toString(selectedIA);
+            return std.string.toString(selectedIA);
         }
     }
 }
@@ -244,183 +244,183 @@ class ChangeIASettingsAction : ChangeValueAction
 
 class ChangeMusicVolumeSettingsAction : ChangeValueAction
 {
-	private
-	{
-		SoundManager m_soundManager;
-	}
-	
+    private
+    {
+        SoundManager m_soundManager;
+    }
+
     public
     {
-	    this(SoundManager soundManager)
-	    {
-		    m_soundManager = soundManager;
-	    }
-	    
-        override void previous()
-		{
-			musicVolume--;
-			if (musicVolume < MIN_MUSIC_VOLUME) musicVolume = MAX_MUSIC_VOLUME;
-			m_soundManager.setMusicVolume(musicVolume);
-		}
+        this(SoundManager soundManager)
+        {
+            m_soundManager = soundManager;
+        }
 
-		override void next()
-		{
-			musicVolume++;
-			if (musicVolume > MAX_MUSIC_VOLUME) musicVolume = MIN_MUSIC_VOLUME;
-			m_soundManager.setMusicVolume(musicVolume);
-		}
+        override void previous()
+        {
+            musicVolume--;
+            if (musicVolume < MIN_MUSIC_VOLUME) musicVolume = MAX_MUSIC_VOLUME;
+            m_soundManager.setMusicVolume(musicVolume);
+        }
+
+        override void next()
+        {
+            musicVolume++;
+            if (musicVolume > MAX_MUSIC_VOLUME) musicVolume = MIN_MUSIC_VOLUME;
+            m_soundManager.setMusicVolume(musicVolume);
+        }
 
         override string textExt()
         {
-	        return std.string.toString(musicVolume) ~ "/10";
+            return std.string.toString(musicVolume) ~ "/10";
         }
     }
 }
 
 class ChangeFXVolumeSettingsAction : ChangeValueAction
 {
-	private
-	{
-		SoundManager m_soundManager;
-	}
-	
+    private
+    {
+        SoundManager m_soundManager;
+    }
+
     public
     {
-	    this(SoundManager soundManager)
-	    {
-		    m_soundManager = soundManager;
-	    }
-	    
-        override void previous()
-		{
-			soundFXVolume--;
-			if (soundFXVolume < MIN_MUSIC_VOLUME) soundFXVolume = MAX_MUSIC_VOLUME;
-		}
+        this(SoundManager soundManager)
+        {
+            m_soundManager = soundManager;
+        }
 
-		override void next()
-		{
-			soundFXVolume++;
-			if (soundFXVolume > MAX_MUSIC_VOLUME) soundFXVolume = MIN_MUSIC_VOLUME;
-		}
+        override void previous()
+        {
+            soundFXVolume--;
+            if (soundFXVolume < MIN_MUSIC_VOLUME) soundFXVolume = MAX_MUSIC_VOLUME;
+        }
+
+        override void next()
+        {
+            soundFXVolume++;
+            if (soundFXVolume > MAX_MUSIC_VOLUME) soundFXVolume = MIN_MUSIC_VOLUME;
+        }
 
         override string textExt()
         {
-	        return std.string.toString(soundFXVolume) ~ "/10";
+            return std.string.toString(soundFXVolume) ~ "/10";
         }
     }
 }
 
 class ChangeMusicAction : ChangeValueAction
 {
-	private
-	{
-		SoundManager m_soundManager;
-	}
-	
+    private
+    {
+        SoundManager m_soundManager;
+    }
+
     public
     {
-	    this(SoundManager soundManager)
-	    {
-		    m_soundManager = soundManager;
-	    }
-	    
-        override void previous()
-		{
-			m_soundManager.previousMusic;
-		}
-
-		override void next()
-		{
-			m_soundManager.nextMusic;
-		}
-		
-		override string textExt()
+        this(SoundManager soundManager)
         {
-	        return "";
+            m_soundManager = soundManager;
+        }
+
+        override void previous()
+        {
+            m_soundManager.previousMusic;
+        }
+
+        override void next()
+        {
+            m_soundManager.nextMusic;
+        }
+
+        override string textExt()
+        {
+            return "";
         }
     }
 }
 
 class ChangeHDRSettingsAction : ChangeValueAction
 {
-	public
+    public
     {
-	    override void previous()
-		{
-			selectedUseHDR = !selectedUseHDR;
-		//	useHDRchanged = true;
-		}
+        override void previous()
+        {
+            selectedUseHDR = !selectedUseHDR;
+        //    useHDRchanged = true;
+        }
 
-		override void next()
-		{
-			selectedUseHDR = !selectedUseHDR;
-		//	useHDRchanged = true;
-		}
+        override void next()
+        {
+            selectedUseHDR = !selectedUseHDR;
+        //    useHDRchanged = true;
+        }
 
         override string textExt()
         {
-	        return selectedUseHDR ? "on" : "off";
+            return selectedUseHDR ? "on" : "off";
         }
     }
 }
 
 class ChangePostProcessingSettingsAction : ChangeValueAction
 {
-	public
+    public
     {
-	    override void previous()
-		{
-			usePostProcessing = !usePostProcessing;
-		}
+        override void previous()
+        {
+            usePostProcessing = !usePostProcessing;
+        }
 
-		override void next()
-		{
-			usePostProcessing = !usePostProcessing;
-		}
+        override void next()
+        {
+            usePostProcessing = !usePostProcessing;
+        }
 
         override string textExt()
         {
-	        return usePostProcessing ? "on" : "off";
+            return usePostProcessing ? "on" : "off";
         }
     }
 }
 
 class ChangeBlurQualitySettingsAction : ChangeValueAction
 {
-	public
+    public
     {
-	    override void previous()
-		{
-			if (!canBlurQuality)
-			{
-				blurQuality = false;
-			}
-			else
-			{
-				blurQuality = !blurQuality;	
-			}
-		}
+        override void previous()
+        {
+            if (!canBlurQuality)
+            {
+                blurQuality = false;
+            }
+            else
+            {
+                blurQuality = !blurQuality;
+            }
+        }
 
-		override void next()
-		{
-			if (!canBlurQuality)
-			{
-				blurQuality = false;
-			}
-			else
-			{
-				blurQuality = !blurQuality;	
-			}
-		}
+        override void next()
+        {
+            if (!canBlurQuality)
+            {
+                blurQuality = false;
+            }
+            else
+            {
+                blurQuality = !blurQuality;
+            }
+        }
 
         override string textExt()
         {
-	        return blurQuality ? "nice" : "ugly";
+            return blurQuality ? "nice" : "ugly";
         }
-        
-        override bool enabled() 
+
+        override bool enabled()
         {
-	        return usePostProcessing && canBlurQuality;
+            return usePostProcessing && canBlurQuality;
         }
     }
 }
@@ -430,25 +430,25 @@ class ChangeGammaSettingsAction : ChangeValueAction
     public
     {
         override void previous()
-		{
-			gammaModifier--;
-			if (gammaModifier < MIN_GAMMA_MODIFIER) gammaModifier = MAX_GAMMA_MODIFIER;
-		}
+        {
+            gammaModifier--;
+            if (gammaModifier < MIN_GAMMA_MODIFIER) gammaModifier = MAX_GAMMA_MODIFIER;
+        }
 
-		override void next()
-		{
-			gammaModifier++;
-			if (gammaModifier > MAX_GAMMA_MODIFIER) gammaModifier = MIN_GAMMA_MODIFIER;
-		}
+        override void next()
+        {
+            gammaModifier++;
+            if (gammaModifier > MAX_GAMMA_MODIFIER) gammaModifier = MIN_GAMMA_MODIFIER;
+        }
 
         override string textExt()
         {
-	        return std.string.toString(gammaModifier) ~ "/10";
+            return std.string.toString(gammaModifier) ~ "/10";
         }
-        
-        override bool enabled() 
+
+        override bool enabled()
         {
-	        return usePostProcessing;
+            return usePostProcessing;
         }
     }
 }

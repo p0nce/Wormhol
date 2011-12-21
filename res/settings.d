@@ -45,35 +45,35 @@ bool usePostProcessing = true;
 bool useHDR = false;
 bool useHDRchanged = false;
 
-bool blurQuality = true; //EXTGpuShader4.isEnabled(); 
+bool blurQuality = true; //EXTGpuShader4.isEnabled();
 bool canBlurQuality = true;
 bool selectedUseHDR = true;
 
 const char[][MAX_RESOLUTION_CHOICE] resString =
 [
-	"Auto res.", "640 x 480", "800 x 600", "1024 x 768", "1280 x 720", 
-	"1280 x 800", "1280 x 1024", "1368 x 768", "1440 x 900", 
-	"1600 x 1200", "1680 x 1050", "1920 x 1080", "1920 x 1200"
+    "Auto res.", "640 x 480", "800 x 600", "1024 x 768", "1280 x 720",
+    "1280 x 800", "1280 x 1024", "1368 x 768", "1440 x 900",
+    "1600 x 1200", "1680 x 1050", "1920 x 1080", "1920 x 1200"
 ];
 
 private const int[MAX_RESOLUTION_CHOICE] resWidth =
 [
-	-1, 640, 800, 1024, 1280, 1280, 1280, 1368, 1440, 1600, 1680, 1920, 1920
+    -1, 640, 800, 1024, 1280, 1280, 1280, 1368, 1440, 1600, 1680, 1920, 1920
 ];
 
 private const int[MAX_RESOLUTION_CHOICE] resHeight =
 [
-	-1, 480, 600, 768, 720, 800, 1024, 768, 900, 1200, 1050, 1080, 1200
+    -1, 480, 600, 768, 720, 800, 1024, 768, 900, 1200, 1050, 1080, 1200
 ];
 
 vec2i getResolution(int x)
 {
-	return vec2i(resWidth[x], resHeight[x]);
+    return vec2i(resWidth[x], resHeight[x]);
 }
 
 char[] getResolutionString(int x)
 {
-	return resString[x];
+    return resString[x];
 }
 
 int selectedIA = 3;
@@ -93,7 +93,7 @@ SDLKey[4] playerRightKey;
 
 bool graphicsSettingsHaveChanged()
 {
-	return (currentResolution != selectedResolution) || (currentFullscreen != selectedFullscreen) || (useHDR != selectedUseHDR);	
+    return (currentResolution != selectedResolution) || (currentFullscreen != selectedFullscreen) || (useHDR != selectedUseHDR);
 }
 
 const char[] INI_FILENAME = "wormhol.ini";
@@ -102,67 +102,67 @@ const char[] INI_FILENAME = "wormhol.ini";
 
 void loadSettings()
 {
-	auto scope iniFile = new IniFile(INI_FILENAME);
-	
-	
-	selectedResolution = iniFile.readInt("graphics", "resolution", 0);	
-	if ((selectedResolution < 0) || (selectedResolution >= MAX_RESOLUTION_CHOICE))
-	{
-		selectedResolution = 0;
-	}
-	
-	selectedFullscreen = iniFile.readBool("graphics", "fullscreen", true);
-	musicVolume = iniFile.readInt("sound", "music", 7);
-	soundFXVolume = iniFile.readInt("sound", "soundfx", 7);
-	
-	selectedPlayers = iniFile.readInt("game", "humans", 2);
-	selectedIA = iniFile.readInt("game", "ia", 3);
-	
-	playerLeftKey[0] = iniFile.readInt("controls", "player0left", SDLK_LEFT);
-	playerRightKey[0] = iniFile.readInt("controls", "player0right", SDLK_RIGHT);
-	playerLeftKey[1] = iniFile.readInt("controls", "player1left", SDLK_a);
-	playerRightKey[1] = iniFile.readInt("controls", "player1right", SDLK_d);
-	playerLeftKey[2] = iniFile.readInt("controls", "player2left", SDLK_j);
-	playerRightKey[2] = iniFile.readInt("controls", "player2right", SDLK_l);
-	playerLeftKey[3] = iniFile.readInt("controls", "player3left", SDLK_KP4);
-	playerRightKey[3] = iniFile.readInt("controls", "player3right", SDLK_KP6);
-	
-	usePostProcessing = iniFile.readBool("graphics", "usePostProcessing", true);
-	selectedUseHDR = iniFile.readBool("graphics", "useHDR", true);
-	blurQuality = iniFile.readBool("graphics", "blurQuality", true);
-	gammaModifier = iniFile.readInt("graphics", "gammaModifier", 2); // defaults to LCD
+    auto scope iniFile = new IniFile(INI_FILENAME);
+
+
+    selectedResolution = iniFile.readInt("graphics", "resolution", 0);
+    if ((selectedResolution < 0) || (selectedResolution >= MAX_RESOLUTION_CHOICE))
+    {
+        selectedResolution = 0;
+    }
+
+    selectedFullscreen = iniFile.readBool("graphics", "fullscreen", true);
+    musicVolume = iniFile.readInt("sound", "music", 7);
+    soundFXVolume = iniFile.readInt("sound", "soundfx", 7);
+
+    selectedPlayers = iniFile.readInt("game", "humans", 2);
+    selectedIA = iniFile.readInt("game", "ia", 3);
+
+    playerLeftKey[0] = iniFile.readInt("controls", "player0left", SDLK_LEFT);
+    playerRightKey[0] = iniFile.readInt("controls", "player0right", SDLK_RIGHT);
+    playerLeftKey[1] = iniFile.readInt("controls", "player1left", SDLK_a);
+    playerRightKey[1] = iniFile.readInt("controls", "player1right", SDLK_d);
+    playerLeftKey[2] = iniFile.readInt("controls", "player2left", SDLK_j);
+    playerRightKey[2] = iniFile.readInt("controls", "player2right", SDLK_l);
+    playerLeftKey[3] = iniFile.readInt("controls", "player3left", SDLK_KP4);
+    playerRightKey[3] = iniFile.readInt("controls", "player3right", SDLK_KP6);
+
+    usePostProcessing = iniFile.readBool("graphics", "usePostProcessing", true);
+    selectedUseHDR = iniFile.readBool("graphics", "useHDR", true);
+    blurQuality = iniFile.readBool("graphics", "blurQuality", true);
+    gammaModifier = iniFile.readInt("graphics", "gammaModifier", 2); // defaults to LCD
 }
 
 void saveSettings()
 {
-	auto scope iniFile = new IniFile();
-	
-	iniFile.writeInt("graphics", "resolution", selectedResolution);	
-	iniFile.writeBool("graphics", "fullscreen", selectedFullscreen);	
-	
-	iniFile.writeInt("sound", "music", musicVolume);
-	iniFile.writeInt("sound", "soundfx", soundFXVolume);	
-	
-	iniFile.writeInt("game", "humans", selectedPlayers);
-	iniFile.writeInt("game", "ia", selectedIA);	
-	
-	iniFile.writeInt("controls", "player0left", playerLeftKey[0]);
-	iniFile.writeInt("controls", "player0right", playerRightKey[0]);
-	
-	iniFile.writeInt("controls", "player1left", playerLeftKey[1]);
-	iniFile.writeInt("controls", "player1right", playerRightKey[1]);
-		
-	iniFile.writeInt("controls", "player2left", playerLeftKey[2]);
-	iniFile.writeInt("controls", "player2right", playerRightKey[2]);
-		
-	iniFile.writeInt("controls", "player3left", playerLeftKey[3]);
-	iniFile.writeInt("controls", "player3right", playerRightKey[3]);	
-	
-	iniFile.writeBool("graphics", "usePostProcessing", usePostProcessing);
-	iniFile.writeBool("graphics", "useHDR", selectedUseHDR);
-	iniFile.writeBool("graphics", "blurQuality", blurQuality);
-	
-	iniFile.writeInt("graphics", "gammaModifier", gammaModifier);	
-	iniFile.save(INI_FILENAME);
+    auto scope iniFile = new IniFile();
+
+    iniFile.writeInt("graphics", "resolution", selectedResolution);
+    iniFile.writeBool("graphics", "fullscreen", selectedFullscreen);
+
+    iniFile.writeInt("sound", "music", musicVolume);
+    iniFile.writeInt("sound", "soundfx", soundFXVolume);
+
+    iniFile.writeInt("game", "humans", selectedPlayers);
+    iniFile.writeInt("game", "ia", selectedIA);
+
+    iniFile.writeInt("controls", "player0left", playerLeftKey[0]);
+    iniFile.writeInt("controls", "player0right", playerRightKey[0]);
+
+    iniFile.writeInt("controls", "player1left", playerLeftKey[1]);
+    iniFile.writeInt("controls", "player1right", playerRightKey[1]);
+
+    iniFile.writeInt("controls", "player2left", playerLeftKey[2]);
+    iniFile.writeInt("controls", "player2right", playerRightKey[2]);
+
+    iniFile.writeInt("controls", "player3left", playerLeftKey[3]);
+    iniFile.writeInt("controls", "player3right", playerRightKey[3]);
+
+    iniFile.writeBool("graphics", "usePostProcessing", usePostProcessing);
+    iniFile.writeBool("graphics", "useHDR", selectedUseHDR);
+    iniFile.writeBool("graphics", "blurQuality", blurQuality);
+
+    iniFile.writeInt("graphics", "gammaModifier", gammaModifier);
+    iniFile.save(INI_FILENAME);
 }
 

@@ -26,7 +26,7 @@ class SphereGeometry // unit Sphere Geometry
 
             m_top = vec3f(0,0,+1);
             m_bottom = vec3f(0,0,-1);
-			
+
 
             for (int i = 0; i < m_stacks - 1; ++i)
             {
@@ -59,23 +59,23 @@ class SphereGeometry // unit Sphere Geometry
             m_normalFactor = normalOutside ? 1.f : -1.f;
             m_radius = radius;
         }
-        
-          
+
+
 
         void render()
         {
-	        
+
             // bottom
             GL.begin(GL.TRIANGLE_FAN);
                 vertex(m_bottom);
 
-                
+
                 for (int j = 0; j < m_slices; ++j)
                 {
                     vertex(pt(0, j));
                 }
                 vertex(pt(0, 0));
-                
+
 
             GL.end();
 
@@ -86,12 +86,12 @@ class SphereGeometry // unit Sphere Geometry
 
                 for (int j = 0; j < m_slices; ++j)
                 {
-	                vertex(pt(i,j));
-                    vertex(pt(i+1,j));                    
+                    vertex(pt(i,j));
+                    vertex(pt(i+1,j));
                 }
-				vertex(pt(i,0));
+                vertex(pt(i,0));
                 vertex(pt(i+1,0));
-                
+
 
                 GL.end();
             }
@@ -104,9 +104,9 @@ class SphereGeometry // unit Sphere Geometry
                 {
                     vertex(pt(m_stacks - 2, j));
                 }
-                
+
             GL.end();
-            
+
         }
     }
 

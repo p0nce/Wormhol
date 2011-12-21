@@ -16,8 +16,8 @@ class MenuItem
         MenuAction m_action;
         string m_text;
         float m_sizeFactor;
-    }    
-    
+    }
+
     public
     {
         this(string text, MenuAction action, float sizeFactor = 1.f)
@@ -29,14 +29,14 @@ class MenuItem
 
         string text()
         {
-	        if (action !is null)
-	        {
-            	return m_text ~ m_action.textExt;
-        	}
-        	else
-        	{
-	        	return m_text;
-        	}
+            if (action !is null)
+            {
+                return m_text ~ m_action.textExt;
+            }
+            else
+            {
+                return m_text;
+            }
         }
 
         MenuAction action()
@@ -48,12 +48,12 @@ class MenuItem
         {
             return m_action = a;
         }
-        
+
         bool enabled()
         {
-			return m_action.enabled();
+            return m_action.enabled();
         }
-        
+
         float sizeFactor() { return m_sizeFactor; }
         float sizeFactor(float s) { return m_sizeFactor = s; }
     }

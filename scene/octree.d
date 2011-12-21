@@ -34,10 +34,10 @@ final class Octree
         }
     }
 
-	public
-	{
-		this(vec3f origin, float size)
-		{
+    public
+    {
+        this(vec3f origin, float size)
+        {
             m_origin = origin;
             m_size = size;
             assert(size > 0);
@@ -46,21 +46,21 @@ final class Octree
             {
                 m_children[i] = null;
             }
-		}
-		
+        }
+
 
 /*
-		void insert(GameObject o)
-		{
+        void insert(GameObject o)
+        {
             box3f bb = o.worldBoundingBox();
             Octree qt = getOctreeToInsertInto(bb);
             qt.m_elements ~= o;
-		}
+        }
 */
-		box3f boundingBox() // cube covered by this quadtree
-		{
+        box3f boundingBox() // cube covered by this quadtree
+        {
             return box3f(m_origin, m_origin + m_size);
-		}
+        }
 
         Octree getOctreeToInsertInto(box3f bb)
         {
@@ -82,5 +82,5 @@ final class Octree
             }
             return this;
         }
-	}
+    }
 }
