@@ -1,0 +1,29 @@
+Music:
+ - maf_-_81.mp3
+ - maf_-_inspace.mp3
+ - maf_-_lego_gland.mp3
+
+  These tracks are copyrighted by Benoit Charcosset (charcosset.b@free.fr).
+
+  Distributed under the Creative Commons BY-NC-SA v3.0.
+  http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+Menu graphics:
+ - bottomi.png
+ - lefti.png
+ - mouse1.png
+ - mouse2.png
+ - righti.png
+
+ These graphics are copyrighted by Geoffrey Cewing (geoffreycewing@yahoo.fr).
+ Distributed under the Creative Commons BY-NC-SA v3.0.
+ http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+
+Logo graphics:
+ - tout.psd
+ - wormhollogo.jpg
+
+ These graphics are copyrighted by Gregory Le Roux (askdesign2003@hotmail.com).
+ Distributed under the Creative Commons BY-NC-SA v3.0.
+ http://creativecommons.org/licenses/by-nc-sa/3.0/

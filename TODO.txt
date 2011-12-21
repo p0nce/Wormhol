@@ -1,0 +1,15 @@
+These things were on the top of my head when I released Wormhol v1.0.
+- remove excessive debug trace
+- D2?
+- IA players
+- ATI compatibility
+- Torii
+- Arbitrary mesh as surfaces?
+- Editable levels?
+- Rebindable keys
+- Joystick support
+- More speed
+- One-click installer
+- A replacement for this Black Ugly Background©
+- configuration and logging should go in a proper, writable directory (Windows Seven)
+- whatever...

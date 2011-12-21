@@ -1,0 +1,87 @@
+
+                         __        ___        ___
+           _____        (__)  ___ / __)<-AZ->(__ \
+          / ___ \___    / _\_(__ \\_ \___   ___/ /       ____
+          \__)/   __\   \_)/_____/ / / __) / _  /___    / __ \
+              \__/ _\\  __//\\  __/  ) \__/ /\__)_  /   \_)/ /_
+       _  _       / _ \/ _ \_\\(_ \ \__/ _) \__  / /_   __ \___)
+     >/o\/o\<     \__/\\___(_ \___/___) _ \__  \/____\ /_/
+      \_==_/          \_______/    __\  __/__\  )
+        \/                        (____/ (_____/
+
+
+                                 WORMHOL v1.0
+
+
+  Wormhol is a multiplayer split-screen snake game designed for children and
+drunken sceners. This game is not finished and will be updated soon (visit 
+our website). 
+
+
+  PLEASE !   If you encounter any problem please report your fancy log.htm to
+             contact@adinpsz.org. It's the only way we can improve 
+             compatibility in our productions.
+
+
+  Credits:   
+             code: #ponce
+             music: maF
+             gfx: Pandafox, Graindolium
+
+  Keys:
+             Player 1: ARROWS
+             Player 2: A / D
+             Player 3: H / K
+             Player 4: numpad 4 / numpad 6
+             Start a new game: SPACE or RETURN
+
+  Known bugs:    
+      - won't probably work on some ATI cards. Maybe try to tweak the ini file
+        to disable HDR and post-processing.
+      - snakes sometimes can fly
+      
+      
+  Planned features:
+      - AI players
+      - level description files
+      - arbitrary triangular mesh
+      - toruses 
+      
+  To contact us:   
+             contact@adinpsz.org
+             #adinpsz @ IRCNet 
+             http://adinpsz.org   
+             http://twitter.com/adinpsz
+
+
+  We say hello to:                                                                |
+                                     
+      Alcatraz
+      Apocalypse Inc.
+      Approximate
+      ASD
+      Cocoon
+      Conspiracy
+      Ctrl-Alt-Test
+      Einklang.net
+      Fairlight
+      Farbrausch      
+      GLenZ
+      mfx
+      MJJ prod
+      NoOoN
+      Northern Dragons
+      Orb
+      Popsy Team
+      Portal Process
+      Quite
+      Rebels
+      rrrola
+      RGBA
+      Sector one
+      Trolls In The Shadows
+      Traction
+      Youth Uprising
+      
+  And especially we want to thank FRequency for their "Ergon" PC 4k.
+  Congratulations!
